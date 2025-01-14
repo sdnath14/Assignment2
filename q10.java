@@ -1,11 +1,20 @@
 import java.util.Scanner;
 
 class Employee {
-    public void checkSalary(float salary) {
+    private float salary;
 
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+    public void checkSalary() {
         float bonus = salary * 0.2f;
-        float travelaalowance = salary * 1.5f;
-        float annualSalary = (salary * 12) + bonus + travelaalowance - 0.10f;
+        float travelAllowance = salary * 1.5f;
+        float annualSalary = (salary * 12) + bonus + travelAllowance - 0.10f;
 
         System.out.println("Total annual salary is: " + annualSalary);
     }
@@ -16,10 +25,12 @@ public class q10 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the monthly salary:");
-        float salary = sc.nextFloat();
+        float salaryInput = sc.nextFloat();
 
         Employee e = new Employee();
-        e.checkSalary(salary);
+        e.setSalary(salaryInput);
 
+        e.checkSalary();
     }
 }
+
