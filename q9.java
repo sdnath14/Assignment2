@@ -1,7 +1,17 @@
 import java.util.Scanner;
 
 class Palindrome {
-    public void checkPel(String name) {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void checkPalindrome() {
         String reversed = "";
 
         for (int i = name.length() - 1; i >= 0; i--) {
@@ -18,14 +28,14 @@ class Palindrome {
 
 public class q9 {
     public static void main(String[] args) {
-        String name;
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter a name:");
-        name = sc.nextLine();
+
+        System.out.println("Enter a name:");
+        String inputName = sc.nextLine();
 
         Palindrome p = new Palindrome();
+        p.setName(inputName);
 
-        p.checkPel(name);
-
+        p.checkPalindrome();
     }
 }
