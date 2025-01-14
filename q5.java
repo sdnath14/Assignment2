@@ -1,13 +1,31 @@
 import java.util.Scanner;
 
 class Laptop {
-    String brand;
-    double price;
-    String processor;
+    private String brand;
+    private double price;
+    private String processor;
 
-    public Laptop(String brand, double price, String processor) {
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getProcessor() {
+        return processor;
+    }
+
+    public void setProcessor(String processor) {
         this.processor = processor;
     }
 }
@@ -15,9 +33,20 @@ class Laptop {
 public class q5 {
     public static void main(String[] args) {
 
-        Laptop laptop1 = new Laptop("Dell", 80000, "Intel Core Ultra i7");
-        Laptop laptop2 = new Laptop("HP", 750000, "AMD Ryzen 7");
-        Laptop laptop3 = new Laptop("Asus", 90000, "Intel Core Ultra i9");
+        Laptop laptop1 = new Laptop();
+        laptop1.setBrand("Dell");
+        laptop1.setPrice(80000);
+        laptop1.setProcessor("Intel Core Ultra i7");
+
+        Laptop laptop2 = new Laptop();
+        laptop2.setBrand("HP");
+        laptop2.setPrice(75000);
+        laptop2.setProcessor("AMD Ryzen 7");
+
+        Laptop laptop3 = new Laptop();
+        laptop3.setBrand("Asus");
+        laptop3.setPrice(90000);
+        laptop3.setProcessor("Intel Core Ultra i9");
 
         Laptop[] laptops = { laptop1, laptop2, laptop3 };
 
@@ -27,11 +56,12 @@ public class q5 {
         System.out.println("Enter your address:");
         String address = sc.nextLine();
 
-        // using enhancing loop method:
+        // Using enhanced for loop
         System.out.println("Available Laptops:");
         for (Laptop laptop : laptops) {
             System.out.println(
-                    "Brand: " + laptop.brand + ", Price: " + laptop.price + ", Processor: " + laptop.processor);
+                    "Brand: " + laptop.getBrand() + ", Price: " + laptop.getPrice() + ", Processor: "
+                            + laptop.getProcessor());
         }
 
         System.out.println("Enter the brand of the laptop you want to purchase:");
@@ -39,11 +69,11 @@ public class q5 {
 
         boolean purchased = false;
         for (Laptop laptop : laptops) {
-            if (laptop.brand.equalsIgnoreCase(chosenBrand)) {
-                if (laptop.processor.toLowerCase().contains("intel core ultra")) {
+            if (laptop.getBrand().equalsIgnoreCase(chosenBrand)) {
+                if (laptop.getProcessor().toLowerCase().contains("intel core ultra")) {
                     System.out.println("Congratulations, " + username + "! You have purchased the following laptop:");
-                    System.out.println("Brand: " + laptop.brand + ", Price: " + laptop.price + ", Processor: "
-                            + laptop.processor);
+                    System.out.println("Brand: " + laptop.getBrand() + ", Price: " + laptop.getPrice() + ", Processor: "
+                            + laptop.getProcessor());
                     purchased = true;
                 } else {
                     System.out.println("Sorry, " + username
