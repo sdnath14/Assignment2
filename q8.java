@@ -1,28 +1,38 @@
-class Elligibleforvote {
-    private int age;
+import java.util.Scanner;
 
-    public int getAge() {
-        return age;
+class MobileShop {
+    private int versionAndroid;
+
+    public int getVersionAndroid() {
+        return versionAndroid;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setVersionAndroid(int versionAndroid) {
+        this.versionAndroid = versionAndroid;
     }
 
-    public void check() {
-        if (age > 18) {
-            System.out.println("Yes you are elligible for voting");
+    public void checkAvailability() {
+        if (versionAndroid == 15) {
+            System.out.println("I will purchase it.");
         } else {
-            System.out.println("Yes you are not elligible for voting");
-
+            System.out.println("No thanks!!");
         }
     }
 }
 
-class q8 {
+public class q7 {
     public static void main(String[] args) {
-        Elligibleforvote e = new Elligibleforvote();
-        e.setAge(30);
-        e.check();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter sir, which model you want?");
+        String models = sc.nextLine();
+
+        System.out.println("Which android version you want?");
+        int versionAndroid = sc.nextInt();
+
+        MobileShop m = new MobileShop();
+        m.setVersionAndroid(versionAndroid);
+
+        m.checkAvailability();
     }
 }
